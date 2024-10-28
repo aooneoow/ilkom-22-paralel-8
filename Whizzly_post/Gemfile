@@ -1,0 +1,47 @@
+# Gemfile
+source 'https://rubygems.org'
+
+# Web Framework
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'puma'
+gem 'rackup'
+gem 'rack'
+gem 'rack-contrib'
+gem 'rack-cors'
+gem 'grpc'
+
+# Database
+gem 'mysql2'
+gem 'redis'
+gem 'connection_pool'
+
+# Authentication & Authorization
+gem 'jwt'
+gem 'bcrypt'
+
+# Environment & Configuration
+gem 'dotenv'
+gem 'json'
+
+# Background Processing
+gem 'concurrent-ruby'
+
+# Development & Testing
+group :development, :test do
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'pry'
+end
+
+# Production
+group :production do
+  gem 'newrelic_rpm'
+  gem 'sentry-ruby'
+end
+
+
+
+
