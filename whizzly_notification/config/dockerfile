@@ -1,0 +1,13 @@
+# Dockerfile
+FROM ruby:2.7
+WORKDIR /usr/src/app
+
+# Salin semua file ke dalam container
+COPY . .
+
+# Install dependencies
+RUN bundle install
+
+# Expose port dan jalankan aplikasi
+EXPOSE 4567
+CMD ["ruby", "app.rb"]
