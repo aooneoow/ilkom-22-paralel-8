@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  post_service:
+    build: ./post_service
+    ports:
+      - "3001:9292"
+    deploy:
+      replicas: 2  # Multi-node
+  comment_service:
+    build: ./comment_service
+    ports:
+      - "3002:9292"
+    deploy:
+      replicas: 2
+  like_service:
+    build: ./like_service
+    ports:
+      - "3003:9292"
+    deploy:
+      replicas: 2
+  notification_service:
+    build: ./notification_service
+    ports:
+      - "3004:9294"
+    deploy:
+      replicas: 2
