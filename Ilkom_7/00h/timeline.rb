@@ -100,4 +100,3 @@ class Post
   end
   
   main
-  
