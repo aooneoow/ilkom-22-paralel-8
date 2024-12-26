@@ -1,4 +1,4 @@
-# Social Media Microservices Application
+# Social Media Microservices Application --
 
 ## Deskripsi Proyek
 Proyek ini adalah aplikasi media sosial sederhana yang menggunakan arsitektur microservices. Aplikasi ini dibangun menggunakan Sinatra sebagai framework utama untuk layanan-layanan berikut:
