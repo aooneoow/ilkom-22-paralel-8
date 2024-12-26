@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'rack'
-gem 'activerecord'
 gem 'sqlite3'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
+gem 'json'
+gem 'http'
 gem 'puma'

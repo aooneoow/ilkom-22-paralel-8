@@ -1,42 +1,38 @@
-require 'sinatra'
-require 'json'
-require_relative '../models/comment'
-
 class CommentsController < Sinatra::Base
-  # Endpoint untuk membuat komentar baru
   post '/comments' do
-    content = params[:content]
-    post_id = params[:post_id]
-    user_id = params[:user_id]
-
-    comment = Comment.new(content: content, post_id: post_id, user_id: user_id)
-
+    comment = Comment.new(
+      content: params[:content],
+      user_id: params[:user_id],
+      post_id: params[:post_id]
+    )
+    
     if comment.save
+      # Notifikasi ke pemilik post
+      notify_post_owner(comment)
       status 201
-      comment.to_json
+      { status: 'success', comment: comment }.to_json
     else
       status 400
-      { error: "Invalid data" }.to_json
+      { status: 'error', errors: comment.errors }.to_json
     end
   end
-
-  # Endpoint untuk mendapatkan semua komentar terbaru
-  get '/comments' do
-    comments = Comment.latest.limit(10)
-    comments.to_json
-  end
-
-  # Endpoint untuk menghapus komentar berdasarkan ID
-  delete '/comments/:id' do
-    comment = Comment.find_by(id: params[:id])
-
-    if comment
-      comment.destroy
-      status 200
-      { message: "Comment deleted successfully" }.to_json
-    else
-      status 404
-      { error: "Comment not found" }.to_json
+  
+  private
+  
+  def notify_post_owner(comment)
+    # Dapatkan post owner dari post service
+    uri = URI("http://localhost:4567/posts/#{comment.post_id}")
+    response = Net::HTTP.get(uri)
+    post_data = JSON.parse(response)
+    
+    if post_data['user_id']
+      NotificationClient.notify(
+        post_data['user_id'],
+        "New comment on your post",
+        comment.id
+      )
     end
+  rescue StandardError => e
+    puts "Error notifying post owner: #{e.message}"
   end
 end

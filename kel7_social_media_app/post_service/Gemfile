@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'activerecord'
 gem 'sqlite3'
-gem 'puma'      #  Puma untuk mendukung multi-threading dan multi-core
-gem 'rack'      # Middleware Rack untuk thread safety
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
+gem 'json'
+gem 'http'
+gem 'puma'
+gem 'concurrent-ruby'

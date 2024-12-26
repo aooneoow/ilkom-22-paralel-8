@@ -1,0 +1,147 @@
+/* Post Component */
+.post-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 12px;
+}
+
+.post-user-info {
+    flex-grow: 1;
+}
+
+.post-username {
+    font-weight: 600;
+    color: #1c1e21;
+}
+
+.post-timestamp {
+    font-size: 0.8rem;
+    color: #65676b;
+}
+
+.post-content {
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+}
+
+.post-actions {
+    display: flex;
+    gap: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: #65676b;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-button:hover {
+    color: #1877f2;
+}
+
+/* Comment Component */
+.comment-card {
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 8px;
+}
+
+.comment-user-info {
+    flex-grow: 1;
+}
+
+.comment-username {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.comment-timestamp {
+    font-size: 0.8rem;
+    color: #65676b;
+}
+
+/* Notification Component */
+.notification-item {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notification-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #1877f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.notification-content {
+    flex-grow: 1;
+}
+
+.notification-text {
+    font-size: 0.9rem;
+}
+
+.notification-timestamp {
+    font-size: 0.8rem;
+    color: #65676b;
+}
+
+/* Trending Component */
+.trending-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.trending-topic {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.trending-count {
+    font-size: 0.8rem;
+    color: #65676b;
+}
